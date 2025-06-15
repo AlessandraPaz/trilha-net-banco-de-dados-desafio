@@ -1,91 +1,41 @@
-# DIO - Trilha .NET - Banco de Dados
-www.dio.me
+# 🎬 Desafio de Banco de Dados SQL Server: Site de Filmes (DIO .NET)
 
-## Desafio de projeto
-Para este desafio, você precisará usar seus conhecimentos adquiridos no módulo de banco de dados, da trilha .NET da DIO.
+Este repositório contém a solução do desafio de banco de dados do módulo SQL Server da trilha .NET da Digital Innovation One (DIO). O projeto simula o gerenciamento de dados de filmes e atores, com foco em consultas SQL.
 
-## Contexto
-Você é responsável pelo banco de dados de um site de filmes, onde são armazenados dados sobre os filmes e seus atores. Sendo assim, foi solicitado para que você realize uma consulta no banco de dados com o objetivo de trazer alguns dados para análises.
+---
 
-## Proposta
-Você precisará realizar 12 consultas ao banco de dados, cada uma retornando um tipo de informação.
-O seu banco de dados está modelado da seguinte maneira:
+## 🗄️ Modelo do Banco de Dados
 
-![Diagrama banco de dados](Imagens/diagrama.png)
+O banco de dados `Filmes` é composto pelas seguintes tabelas:
 
-As tabelas sao descritas conforme a seguir:
+* **`Filmes`**: Detalhes dos filmes (`Id`, `Nome`, `Ano`, `Duracao`).
+* **`Atores`**: Informações dos atores (`Id`, `PrimeiroNome`, `UltimoNome`, `Genero`).
+* **`Generos`**: Categorias de filmes (`Id`, `Genero`).
+* **`ElencoFilme`**: Relacionamento muitos-para-muitos entre `Filmes` e `Atores`, incluindo o `Papel` do ator (`Id`, `IdAtor`, `IdFilme`, `Papel`).
+* **`FilmesGenero`**: Relacionamento muitos-para-muitos entre `Filmes` e `Generos` (`Id`, `IdGenero`, `IdFilme`).
 
-**Filmes**
+---
 
-Tabela responsável por armazenar informações dos filmes.
 
-**Atores**
+## 🔍 Consultas Implementadas
 
-Tabela responsável por armazenar informações dos atores.
+O arquivo `db/queries.sql` contém a resolução das seguintes consultas:
 
-**Generos**
+1.  Buscar o nome e ano dos filmes.
+2.  Buscar o nome e ano dos filmes, ordenados por ano crescente.
+3.  Buscar informações do filme "De Volta para o Futuro" (nome, ano, duração).
+4.  Listar filmes lançados em 1997.
+5.  Listar filmes lançados APÓS o ano 2000.
+6.  Buscar filmes com duração entre 100 e 150 minutos, ordenando pela duração.
+7.  Contar a quantidade de filmes lançados por ano, agrupando e ordenando por ano.
+8.  Listar Atores do gênero masculino.
+9.  Listar Atores do gênero feminino, ordenando pelo PrimeiroNome.
+10. Buscar o nome do filme e seu gênero.
+11. Buscar o nome do filme e o gênero "Mistério".
+12. Buscar o nome do filme, seus atores e o papel desempenhado por cada um.
 
-Tabela responsável por armazenar os gêneros dos filmes.
+---
 
-**ElencoFilme**
+## 🛡️ Licença
 
-Tabela responsável por representar um relacionamento do tipo muitos para muitos entre filmes e atores, ou seja, um ator pode trabalhar em muitos filmes, e filmes
-podem ter muitos atores.
-
-**FilmesGenero**
-
-Tabela responsável por representar um relacionamento do tipo muitos para muitos entre filmes e gêneros, ou seja, um filme pode ter mais de um gênero, e um genêro pode fazer parte de muitos filmes.
-
-## Preparando o banco de dados
-Você deverá executar o arquivo **Script Filmes.sql** em seu banco de dados SQL Server, presente na pasta Scripts deste repositório ([ou clique aqui](Script%20Filmes.sql)). Esse script irá criar um banco chamado **Filmes**, contendo as tabelas e os dados necessários para você realizar este desafio.
-
-## Objetivo
-Você deverá criar diversas consultas, com o objetivo de retornar os dados a seguir. Abaixo de cada pedido tem o retorno esperado. O seu retorno deve ser igual ao da imagem.
-
-## 1 - Buscar o nome e ano dos filmes
-
-![Exercicio 1](Imagens/1.png)
-
-## 2 - Buscar o nome e ano dos filmes, ordenados por ordem crescente pelo ano
-
-![Exercicio 2](Imagens/2.png)
-
-## 3 - Buscar pelo filme de volta para o futuro, trazendo o nome, ano e a duração
-
-![Exercicio 3](Imagens/3.png)
-
-## 4 - Buscar os filmes lançados em 1997
-
-![Exercicio 4](Imagens/4.png)
-
-## 5 - Buscar os filmes lançados APÓS o ano 2000
-
-![Exercicio 5](Imagens/5.png)
-
-## 6 - Buscar os filmes com a duracao maior que 100 e menor que 150, ordenando pela duracao em ordem crescente
-
-![Exercicio 6](Imagens/6.png)
-
-## 7 - Buscar a quantidade de filmes lançadas no ano, agrupando por ano, ordenando pela duracao em ordem decrescente
-
-![Exercicio 7](Imagens/7.png)
-
-## 8 - Buscar os Atores do gênero masculino, retornando o PrimeiroNome, UltimoNome
-
-![Exercicio 8](Imagens/8.png)
-
-## 9 - Buscar os Atores do gênero feminino, retornando o PrimeiroNome, UltimoNome, e ordenando pelo PrimeiroNome
-
-![Exercicio 9](Imagens/9.png)
-
-## 10 - Buscar o nome do filme e o gênero
-
-![Exercicio 10](Imagens/10.png)
-
-## 11 - Buscar o nome do filme e o gênero do tipo "Mistério"
-
-![Exercicio 11](Imagens/11.png)
-
-## 12 - Buscar o nome do filme e os atores, trazendo o PrimeiroNome, UltimoNome e seu Papel
-
-![Exercicio 12](Imagens/12.png)
+Este projeto está sob a [MIT License](LICENSE).
